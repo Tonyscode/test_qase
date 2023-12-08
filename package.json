@@ -1,0 +1,35 @@
+{
+  "name": "e2e-tests",
+  "version": "1.0.0",
+  "description": "Corporate fiber e2e tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run --headless -b chrome",
+    "cy:open": "cypress open"
+  },
+  "keywords": [
+    "e2e",
+    "test",
+    "cypress"
+  ],
+  "author": "Andrew tverdokhleb",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "cypress-image-diff-js": "^1.23.0",
+    "cypress-mailslurp": "^1.4.0",
+    "cypress-mochawesome-reporter": "^3.7.0",
+    "cypress-multi-reporters": "^1.6.4",
+    "cypress-qase-reporter": "file:..",
+    "mocha": "^10.2.0",
+    "playwright-webkit": "^1.35.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "cypress-mochawesome-reporter": "^3.0.1",
+    "cypress-multi-reporters": "^1.4.0",
+    "mailslurp-client": "^15.16.1",
+    "moment": "^2.29.4"
+  }
+}
