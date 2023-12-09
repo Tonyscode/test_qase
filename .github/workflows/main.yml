@@ -1,22 +1,23 @@
 name: 'Qase Run linker'
+
 on:
-    workflow_dispatch:
-      inputs:
-        qase_api_base_url:
-          description: 'Qase API URL'
-          required: true
-        qase_report:
-          description: 'Enabled/disabled reporting to Qase'
-          required: true
-        qase_project_code:
-          description: 'Qase project code'
-          required: true
-        qase_run_id:
-          description: 'Qase Run ID'
-          required: false
-        qase_autocomplete_run:
-          description: 'Qase Run autocomplete'
-          required: false
+  workflow_dispatch:
+    inputs:
+      qase_api_base_url:
+        description: 'Qase API URL'
+        required: true
+      qase_report:
+        description: 'Enabled/disabled reporting to Qase'
+        required: true
+      qase_project_code:
+        description: 'Qase project code'
+        required: true
+      qase_run_id:
+        description: 'Qase Run ID'
+        required: false
+      qase_autocomplete_run:
+        description: 'Qase Run autocomplete'
+        required: false
 env:
   QASE_API_BASE_URL: 'https://api.qase.io/v1'
   QASE_REPORT: 1
@@ -24,13 +25,23 @@ env:
   QASE_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
 
 jobs:
+
+    cypress-run:
+      runs-on: ubuntu-latest
     build-js:
       runs-on: ubuntu-latest
       strategy:
         matrix:
           node-version: [16.x]
       steps:
+        - name: Checkout
+          uses: actions/checkout@v3s
+        
+        - name: Cypress run
+          uses: cypress-io/github-action@v5
+
         - uses: qase-tms/qase-link-run@main
+        
           env:
             QASE_API_TOKEN: ${{ env.QASE_API_TOKEN }}
         - uses: actions/checkout@v3
