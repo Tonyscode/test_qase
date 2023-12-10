@@ -19,8 +19,9 @@ on:
         description: 'Qase Run autocomplete'
         required: false
 env:
-  QASE_API_BASE_URL: 'https://api.qase.io/v1'
+  QASE_API_BASE_URL: https://api.qase.io/v1
   QASE_REPORT: 1
+  QASE_RUN_ID: 5
   QASE_PROJECT_CODE: 'CPHI2'
   QASE_API_TOKEN: ${{ secrets.QASE_API_TOKEN }}
 
